@@ -23,14 +23,13 @@ class ManageQuestionVote extends Component
 
     public function positiveVote(){
         if (Auth::check()) {
-            $this->question->vote = $this->question->vote + 1;
             $this->question->update([
                 'vote' => $this->question->vote + 1
             ]);
             $user = $this->question->user;
             $user->reputation = $user->reputation + 2;
             $user->update([
-                'reputation' => $user->reputation + 2
+                'reputation' => $user->reputation - 2
             ]);
             $this->question->messages()->create([
                 'user_id' => $user->id,

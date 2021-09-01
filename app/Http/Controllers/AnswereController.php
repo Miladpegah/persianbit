@@ -180,6 +180,7 @@ class AnswereController extends Controller
     }
 
     public function addComment(Request $request,Answere $answere){
+        $user = auth()->user();
         $this->validate($request,[
             'text'=>'required'
             ]);
