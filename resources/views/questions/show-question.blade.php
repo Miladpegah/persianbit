@@ -12,10 +12,7 @@
 						@livewire('manage-question-vote', [$question])
 					</div>
 					<div class="question-body markdown-body">
-						@markdown
-{{ $question->body }}
-`sdas`
-						@endmarkdown
+						{{ markdown($question->body) }}
 					</div>
 				</div>
 				<div class="question-tags">
@@ -115,9 +112,7 @@
 							@livewire('answere-vote-and-accept', [$answere])
 						</div>
 						<div class="question-body markdown-body">
-							@markdown
-{{ $answere->body }}
-							@endmarkdown
+						{{ markdown($answere->body) }}
 						</div>
 					</div>
 					<div class="question-asker">
