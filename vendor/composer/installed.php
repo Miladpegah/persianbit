@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'd2c50c54b6973d532fa675e761e7dccfb972bdf3',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -146,6 +146,15 @@
             'install_path' => __DIR__ . '/../fruitcake/laravel-cors',
             'aliases' => array(),
             'reference' => '01de0fe5f71c70d1930ee9a80385f9cc28e0f63a',
+            'dev_requirement' => false,
+        ),
+        'graham-campbell/markdown' => array(
+            'pretty_version' => 'v13.1.1',
+            'version' => '13.1.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../graham-campbell/markdown',
+            'aliases' => array(),
+            'reference' => 'd25b873e5c5870edc4de7d980808f1a8e092a9c7',
             'dev_requirement' => false,
         ),
         'graham-campbell/result-type' => array(
@@ -422,12 +431,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'd2c50c54b6973d532fa675e761e7dccfb972bdf3',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -458,12 +467,12 @@
             'dev_requirement' => true,
         ),
         'league/commonmark' => array(
-            'pretty_version' => '1.5.8',
-            'version' => '1.5.8.0',
+            'pretty_version' => '1.6.6',
+            'version' => '1.6.6.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/commonmark',
             'aliases' => array(),
-            'reference' => '08fa59b8e4e34ea8a773d55139ae9ac0e0aecbaf',
+            'reference' => 'c4228d11e30d7493c6836d20872f9582d8ba6dcf',
             'dev_requirement' => false,
         ),
         'league/flysystem' => array(

@@ -11,8 +11,11 @@
 					<div class="question-action">
 						@livewire('manage-question-vote', [$question])
 					</div>
-					<div class="question-body">
-						<p>{{ $question->body }}</p>
+					<div class="question-body markdown-body">
+						@markdown
+{{ $question->body }}
+`sdas`
+						@endmarkdown
 					</div>
 				</div>
 				<div class="question-tags">
@@ -111,8 +114,10 @@
 						<div class="question-action">
 							@livewire('answere-vote-and-accept', [$answere])
 						</div>
-						<div class="question-body">
-							<p>{{ $answere->body }}</p>
+						<div class="question-body markdown-body">
+							@markdown
+{{ $answere->body }}
+							@endmarkdown
 						</div>
 					</div>
 					<div class="question-asker">
@@ -174,7 +179,8 @@
 							<div class="form-group">
 							    <h2>Offer a new solution:</h2>
 							    <br>
-							    <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" cols="80%"></textarea>
+							    <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" cols="80%" placeholder="Use markdown"></textarea>
+							    <label>Use markdown</label>
 							  </div>
 							  <x-button class="ml-4 comment-button">
 						            {{ __('Add solution') }}
