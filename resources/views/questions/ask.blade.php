@@ -13,7 +13,7 @@
 					            </div>
 					            <div class="form-group">
 					            	<x-label for="name" :value="__('Ask here')" />
-								    <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" cols="80%" placeholder="minimum caracter is 120" required autofocus></textarea>
+								    <textarea onchange="emptyVal(this.value)" onkeydown="passToReviw(this.value)" class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" cols="80%" placeholder="minimum caracter is 120" required autofocus></textarea>
 								</div>
 								<div class="form-group" style="width: 100%;">
 									<x-label for="name" :value="__('Tags')" />
@@ -23,7 +23,9 @@
                                     	@endforeach
                                 	</select>
 								</div>
-									
+										<h3 id="reviewHeader" style="text-align: center;opacity: .5;"></h3>
+										<div class="markdown-body" id="review" style="width: 100%;background-color: #a6a6a6;border-radius: 20px;">
+										</div>
 					                <x-button class="ml-4 comment-button">
 					                    {{ __('ASK') }}
 					                </x-button>
@@ -32,6 +34,7 @@
 			</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+	
 	<script type="text/javascript">
 	    $(".js-example-tokenizer").select2({
 		    tags: true,

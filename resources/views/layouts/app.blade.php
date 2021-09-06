@@ -46,6 +46,8 @@
         
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/3.0.2/marked.min.js" integrity="sha512-TgRjo84fuo2G1bsVMHOEQI9yVfH7BdNyeyo55lnjXDKSpv8XxbBShnQUZZX9/OBNGQUMOJrYG0XxHQO8ZOGdYg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 
         
 
@@ -66,7 +68,29 @@
     </body>
 </html>
     <script src="/index/vendors/bootstrap/bootstrap.min.js"></script>
-<script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript">
+        function passToReviw(value) {
+          let fieldInner = value;
+
+          let reviewField = document.getElementById('review');
+          let reviewHeader = document.getElementById('reviewHeader');
+
+          reviewField.innerHTML = marked(fieldInner);
+          reviewHeader.innerHTML = 'Review';
+          if (fieldInner != null || fieldInner != '') {
+            reviewField.style.padding = '2rem';
+          }
+        }
+
+        function emptyVal(value){
+            let reviewField = document.getElementById('review');
+            let reviewHeader = document.getElementById('reviewHeader'); 
+            if (! value) {
+            reviewField.style.padding = null;
+            reviewHeader.innerHTML = null;
+            }
+        }
+    </script>
 @livewireScripts
 
 

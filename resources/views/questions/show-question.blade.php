@@ -11,7 +11,7 @@
 					<div class="question-action">
 						@livewire('manage-question-vote', [$question])
 					</div>
-					<div class="question-body markdown-body">
+					<div class="question-body markdown-body markdown_body">
 						{{ markdown($question->body) }}
 					</div>
 				</div>
@@ -111,7 +111,7 @@
 						<div class="question-action">
 							@livewire('answere-vote-and-accept', [$answere])
 						</div>
-						<div class="question-body markdown-body">
+						<div class="question-body markdown-body markdown_body">
 						{{ markdown($answere->body) }}
 						</div>
 					</div>
@@ -174,9 +174,11 @@
 							<div class="form-group">
 							    <h2>Offer a new solution:</h2>
 							    <br>
-							    <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" cols="80%" placeholder="Use markdown"></textarea>
+							    <textarea onchange="emptyVal(this.value)" onkeydown="passToReviw(this.value)" class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" cols="80%" placeholder="Use markdown"></textarea>
 							    <label>Use markdown</label>
 							  </div>
+							  <h3 id="reviewHeader" style="text-align: center;opacity: .5;"></h3>
+								<div class="markdown-body" id="review" style="width: 100%;background-color: #a6a6a6;border-radius: 20px;"></div>
 							  <x-button class="ml-4 comment-button">
 						            {{ __('Add solution') }}
 						       </x-button>
