@@ -80,7 +80,7 @@ class QuestionController extends Controller
         $this->authorize('update', $question);
 
     	$question->delete();
-    	return back();
+    	return redirect()->route('questions.index');
     }
 
     public function positiveVote(Question $question){
