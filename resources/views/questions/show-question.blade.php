@@ -174,7 +174,7 @@
 							<div class="form-group">
 							    <h2>Offer a new solution:</h2>
 							    <br>
-							    <textarea onchange="emptyVal(this.value)" onkeydown="passToReviw(this.value)" class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" cols="80%" placeholder="Use markdown"></textarea>
+							    <textarea onkeydown="passToReviw(this.value)" class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" cols="80%" placeholder="Use markdown"></textarea>
 							    <label>Use markdown</label>
 							  </div>
 							  <h3 id="reviewHeader" style="text-align: center;opacity: .5;"></h3>
@@ -189,4 +189,25 @@
 
 			</div>
 			</div>
+
+
+	<script type="text/javascript">
+        function passToReviw(value) {
+          let fieldInner = value;
+
+          let reviewField = document.getElementById('review');
+          let reviewHeader = document.getElementById('reviewHeader');
+
+          reviewField.innerHTML = marked(fieldInner);
+          reviewHeader.innerHTML = 'Review';
+          if (fieldInner != null || fieldInner != '') {
+            reviewField.style.padding = '2rem';
+          }
+          if (! value) {
+          	reviewField.innerHTML = value;
+            reviewField.style.padding = null;
+            reviewHeader.innerHTML = null;
+            }
+        }
+    </script>
 @stop

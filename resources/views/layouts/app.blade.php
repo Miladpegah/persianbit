@@ -68,29 +68,7 @@
     </body>
 </html>
     <script src="/index/vendors/bootstrap/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        function passToReviw(value) {
-          let fieldInner = value;
-
-          let reviewField = document.getElementById('review');
-          let reviewHeader = document.getElementById('reviewHeader');
-
-          reviewField.innerHTML = marked(fieldInner);
-          reviewHeader.innerHTML = 'Review';
-          if (fieldInner != null || fieldInner != '') {
-            reviewField.style.padding = '2rem';
-          }
-        }
-
-        function emptyVal(value){
-            let reviewField = document.getElementById('review');
-            let reviewHeader = document.getElementById('reviewHeader'); 
-            if (! value) {
-            reviewField.style.padding = null;
-            reviewHeader.innerHTML = null;
-            }
-        }
-    </script>
+    
 @livewireScripts
 
 

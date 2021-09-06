@@ -13,7 +13,8 @@
 					            </div>
 					            <div class="form-group">
 					            	<x-label for="name" :value="__('Ask here')" />
-								    <textarea onchange="emptyVal(this.value)" onkeydown="passToReviw(this.value)" class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" cols="80%" placeholder="minimum caracter is 120" required autofocus></textarea>
+							    	<label id="remaining" style="opacity: .5;">The remaining characters : 120</label>
+								    <textarea onkeydown="passToReviw(this.value)" class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" cols="80%" placeholder="minimum caracter is 120" required autofocus minlength="120"></textarea>
 								</div>
 								<div class="form-group" style="width: 100%;">
 									<x-label for="name" :value="__('Tags')" />
@@ -32,6 +33,34 @@
 		        			</form>
 						</div>
 			</div>
+
+
+	<script type="text/javascript">
+        function passToReviw(value) {
+          let fieldInner = value;
+          let total = 120 - value.length;
+          let reviewField = document.getElementById('review');
+          let reviewHeader = document.getElementById('reviewHeader');
+          let reminder = document.getElementById('remaining');
+
+          reviewField.innerHTML = marked(fieldInner);
+          reviewHeader.innerHTML = 'Review';
+          if (total > 0) {
+          	reminder.innerHTML = 'The remaining characters : ' + total;
+          }else{
+          	reminder.innerHTML = 'The remaining characters : 0';
+          }
+          if (fieldInner != null || fieldInner != '') {
+            reviewField.style.padding = '2rem';
+          }
+          if (! value) {
+          	reviewField.innerHTML = value;
+            reviewField.style.padding = null;
+            reviewHeader.innerHTML = null;
+            reminder.innerHTML = 'The remaining characters : 120';
+            }
+        }
+    </script>
 
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 	
