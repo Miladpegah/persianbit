@@ -205,6 +205,8 @@ Route::get('/articles/{article}', 'App\Http\Controllers\ArticleController@show')
 Route::get('/jobs', 'App\Http\Controllers\JobController@index')->name('jobs.index');
 
 Route::get('/questions/{question}', 'App\Http\Controllers\QuestionController@show')->name('questions.show');
+
+
 Route::get('testpass', function (){
 	return bcrypt('milad');
 });

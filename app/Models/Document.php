@@ -19,6 +19,8 @@ class Document extends Model
         'source_link',
     ];
 
+    
+
     public function user(){
     	return $this->belongsTo(User::class);
     }
