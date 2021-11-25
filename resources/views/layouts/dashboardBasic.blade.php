@@ -27,7 +27,7 @@
                 <h4><a href="{{ route('showFollowing', $user) }}">25 Following</a></h4>&nbsp;&nbsp;
                 <h4>{{ $user->reputation }} Reputation</h4>
             </div>
-                <h1 class="about">Persian Bit user from {{ $user->created_at }}</h1>
+                <h1 class="about">Persian Bit user from {{ $diff_joined_time }}</h1>
                 <hr>
 
                 @yield('in_article')

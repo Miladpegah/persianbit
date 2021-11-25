@@ -13,6 +13,8 @@ use App\Models\Photo;
 use App\Models\Spacialty;
 use App\Models\Question;
 use App\Models\Follow;
+use Illuminate\Support\Carbon;
+
 
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -25,7 +27,28 @@ class UserController extends Controller
     
     public function index(){
         $user = auth()->user();
-        return view('user.dashboard',compact('user'));
+        $now = Carbon::now();
+        $diff_joined_time = $now->diffInMonths($user->created_at);
+        if($diff_joined_time > 0){
+            if($diff_joined_time >= 12){
+                $var = $diff_joined_time / 12;
+                $exploded_var = explode('.', $var);
+                if(count($exploded_var) > 1){
+                    $current_year = $user->created_at->addYear($exploded_var[0]);
+                    $months = $now->diffInMonths($current_year);
+                    $diff_joined_time = intval($exploded_var[0]) . ' years and ' . intval($months) . ' months ago.';
+                }else{
+                    $diff_joined_time = $exploded_var[0] . ' years ago.';
+                }
+
+            }else{
+                $diff_joined_time = $diff_joined_time . ' months ago.';
+            }
+        }else{
+            $diff_joined_time = $now->diffInDays($user->created_at) . ' days ago';
+        }
+        
+        return view('user.dashboard',compact('user', 'diff_joined_time'));
     }
 
     public function update(Request $request, User $user){
